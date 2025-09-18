@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}5 Kutu{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="{{ url_for('menu') }}">📘 5 Kutu Yöntemi</a>
+    <div class="ms-auto text-white">
+      {% if session.get('ogrenci_name') %}
+        👋 {{ session.get('ogrenci_name') }} &nbsp; <span class="text-muted">({{ session.get('ogrenci_class') }}.sınıf)</span>
+        &nbsp; <a class="btn btn-sm btn-outline-light ms-2" href="{{ url_for('logout') }}">Çıkış</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<main class="py-4">
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-info">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+</main>
+
+<footer class="text-center py-3 text-muted">
+  © 5 Kutu — İyi çalışmalar! 🚀
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

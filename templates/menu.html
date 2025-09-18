@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Menü{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h2 class="text-primary mb-1">Hoşgeldin, {{ student.name }} 👋</h2>
+  <p class="text-muted mb-4">Sınıf: {{ student.class }}</p>
+
+  <div class="d-grid gap-3 col-10 col-md-6 mx-auto">
+    <a class="btn btn-info btn-lg" href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+    <a class="btn btn-success btn-lg" href="{{ url_for('practice') }}">📚 Kelime Çalış</a>
+    <a class="btn btn-outline-danger btn-lg" href="{{ url_for('logout') }}">🚪 Çıkış</a>
+  </div>
+</div>
+{% endblock %}

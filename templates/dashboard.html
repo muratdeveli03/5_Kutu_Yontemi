@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h3 class="text-center text-primary mb-3">📦 Kutular</h3>
+<p class="text-center text-muted mb-4">Öğrenci: <strong>{{ student.name }}</strong> — Sınıf: <strong>{{ student.class }}</strong></p>
+
+<div class="row g-3">
+  {% for i in range(1,6) %}
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white">Kutu {{ i }}</div>
+        <div class="card-body">
+          {% if boxes[i] %}
+            <ul class="list-unstyled small mb-0">
+              {% for w in boxes[i] %}
+                <li>• {{ w.english }} — <span class="text-muted">{{ w.turkish }}</span></li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-muted small mb-0">Bu kutuda kelime yok.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+  <a class="btn btn-secondary" href="{{ url_for('menu') }}">Ana Menü</a>
+</div>
+{% endblock %}

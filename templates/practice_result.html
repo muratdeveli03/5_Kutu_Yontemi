@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonuç</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align:center; padding:30px; background:#f8f9fa; }
+        .card { background:white; padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); display:inline-block; }
+        .correct { color:green; font-size:18px; }
+        .wrong { color:red; font-size:18px; }
+        a { display:inline-block; margin:15px; padding:10px 20px; background:#007bff; color:white; border-radius:5px; text-decoration:none; }
+        a:hover { background:#0056b3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        {% if result[0] == "correct" %}
+            <p class="correct">✅ Doğru! Kelime {{ result[1] }}. kutuya geçti.</p>
+        {% else %}
+            <p class="wrong">❌ Yanlış. Doğru cevaplar: {{ correct_answers|join(", ") }}. Kelime 1. kutuda kaldı.</p>
+        {% endif %}
+        <a href="{{ url_for('practice') }}">Sonraki kelimeye geç</a>
+        <a href="{{ url_for('menu') }}">Menüye dön</a>
+    </div>
+</body>
+</html>
