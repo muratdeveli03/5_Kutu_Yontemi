@@ -420,8 +420,8 @@ words = [
     (8, "special - particular", "özel"),
     (8, "druing", "esnasında;sırasında"),
     (8, "things", "şeyler;eşyalar"),
-    (8, "definitely", "kesinlikle")
-    
+    (8, "definitely", "kesinlikle"),
+    (8, "book", "rezervasyon yapmak;rezerve etmek;ayırtmak")
 ]
 
 def init_db():
@@ -494,3 +494,4 @@ def init_db():
 
 if __name__ == "__main__":
     init_db()
+
